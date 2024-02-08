@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-08T08:38:38.026Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0" etag="MpAqTmbizyDtAdGm-6yj" version="23.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-02-08T13:46:59.888Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0" etag="SvvQ4ZTE33ByRVNKa84d" version="23.1.2" type="github">
   <diagram name="Page-1" id="iM5Qar0I_T4ClO0l9BpY">
-    <mxGraphModel dx="2069" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2258" dy="861" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -21,7 +21,7 @@
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-5" value="CardID (PK): INT identity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="f_3XTK5y-2Xs3n7eS-jz-4" vertex="1">
           <mxGeometry y="30" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="f_3XTK5y-2Xs3n7eS-jz-6" value="Name : VARCHAR(100)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="f_3XTK5y-2Xs3n7eS-jz-4" vertex="1">
+        <mxCell id="dv_HK2Egndt3iXCrnX_M-7" value="NameID(FK): INT identity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="f_3XTK5y-2Xs3n7eS-jz-4">
           <mxGeometry y="60" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-7" value="RarityID (FK): INT identity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="f_3XTK5y-2Xs3n7eS-jz-4" vertex="1">
@@ -89,7 +89,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-27" value="Customer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="842" y="643" width="208" height="150" as="geometry" />
+          <mxGeometry x="860" y="560" width="208" height="150" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-28" value="CustomerID (PK) : INT identity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="f_3XTK5y-2Xs3n7eS-jz-27" vertex="1">
           <mxGeometry y="30" width="208" height="30" as="geometry" />
@@ -110,7 +110,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-34" value="Type" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="300" y="855" width="180" height="90" as="geometry" />
+          <mxGeometry x="300" y="825" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-35" value="TypeID (PK) : INT identity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="f_3XTK5y-2Xs3n7eS-jz-34" vertex="1">
           <mxGeometry y="30" width="180" height="30" as="geometry" />
@@ -137,6 +137,18 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="f_3XTK5y-2Xs3n7eS-jz-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.998;entryY=0.186;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" parent="1" source="f_3XTK5y-2Xs3n7eS-jz-17" target="f_3XTK5y-2Xs3n7eS-jz-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dv_HK2Egndt3iXCrnX_M-3" value="CardName" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="340" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dv_HK2Egndt3iXCrnX_M-4" value="NameID (PK): INTidentity(1,1)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="dv_HK2Egndt3iXCrnX_M-3">
+          <mxGeometry y="30" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dv_HK2Egndt3iXCrnX_M-5" value="Name : VARCHAR(100)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="dv_HK2Egndt3iXCrnX_M-3">
+          <mxGeometry y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dv_HK2Egndt3iXCrnX_M-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1" source="dv_HK2Egndt3iXCrnX_M-4" target="dv_HK2Egndt3iXCrnX_M-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
