@@ -29,8 +29,8 @@ resource "aws_default_subnet" "subnet_az2" {
 }
 
 # create security group for the web server
-resource "aws_security_group" "webserver_security_group" {
-  name        = "webserver security group"
+resource "aws_security_group" "webserver_security_group_2" {
+  name        = "webserver security group 2"
   description = "enable http access on port 80"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -50,22 +50,22 @@ resource "aws_security_group" "webserver_security_group" {
   }
 
   tags = {
-    Name = "webserver security group"
+    Name = "webserver security group 2"
   }
 }
 
 # create security group for the database
-resource "aws_security_group" "database_security_group" {
-  name        = "database security group"
-  description = "enable mysql/aurora access on port 3306"
+resource "aws_security_group" "database_security_group_2" {
+  name        = "database security group 2"
+  description = "enable sql server access on port 3306"
   vpc_id      = aws_default_vpc.default_vpc.id
 
   ingress {
-    description     = "mysql/aurora access"
+    description     = "sql server access"
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.webserver_security_group.id]
+    security_groups = [aws_security_group.webserver_security_group_2.id]
   }
 
   egress {
@@ -76,19 +76,19 @@ resource "aws_security_group" "database_security_group" {
   }
 
   tags = {
-    Name = "database security group"
+    Name = "database security group 2"
   }
 }
 
 
 # create the subnet group for the rds instance
 resource "aws_db_subnet_group" "database_subnet_group" {
-  name        = "database-subnets"
+  name        = "database-subnets-2"
   subnet_ids  = [aws_default_subnet.subnet_az1.id, aws_default_subnet.subnet_az2.id]
   description = "Subnets for database instance"
 
   tags = {
-    Name = "database-subnets"
+    Name = "database-subnets-2"
   }
 }
 
@@ -104,7 +104,7 @@ resource "aws_db_instance" "default" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
-  vpc_security_group_ids = [aws_security_group.database_security_group.id]
+  vpc_security_group_ids = [aws_security_group.database_security_group_2.id]
   availability_zone      = data.aws_availability_zones.available_zones.names[0]
   # db_name                = "fantasycarddb"
   skip_final_snapshot    = true
