@@ -1,6 +1,7 @@
 
 USE FantasyTCStore
 GO
+
 --Select statments to show off the Card value calculation
 SELECT TOP 10
     c.CardName,
@@ -16,3 +17,11 @@ WHERE
     c.CardRarityID=1 OR c.CardRarityID=5
 
 ORDER BY PurchasePrice;
+GO
+
+
+SELECT * FROM CurrentStockView
+ORDER BY
+    Category,
+    CardName,
+    SellingPrice;
