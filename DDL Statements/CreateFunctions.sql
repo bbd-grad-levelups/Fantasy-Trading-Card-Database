@@ -44,4 +44,35 @@ BEGIN
 END;
 GO
 
-
+CREATE FUNCTION GetCustomerTransactions
+(
+    @CustomerID INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        t.TransactionDate,
+        CASE 
+            WHEN t.TransactionTypeID = 1 THEN 'Sold To Store'
+            WHEN t.TransactionTypeID = 2 THEN 'Purchased By Customer'
+            ELSE 'Unknown'
+        END AS TransactionType,
+        c.CardName,
+        cg.CardGradingName AS Grading,
+        tl.Quantity AS TransactionQuantity
+    FROM 
+        Transactions t
+    INNER JOIN 
+        TransactionLine tl ON t.TransactionID = tl.TransactionID
+    INNER JOIN 
+        Stock s ON tl.StockID = s.StockID
+    INNER JOIN 
+        Cards c ON s.CardID = c.CardID
+    INNER JOIN 
+        CardGrading cg ON s.CardGradingID = cg.CardGradingID
+    WHERE 
+        t.CustomerID = @CustomerID
+);
+GO

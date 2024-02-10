@@ -25,3 +25,11 @@ ORDER BY
     Category,
     CardName,
     SellingPrice;
+
+
+GO
+
+
+SELECT *
+FROM dbo.GetCustomerTransactions(1)
+ORDER BY TransactionDate;

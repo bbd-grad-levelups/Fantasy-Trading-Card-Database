@@ -154,42 +154,40 @@ VALUES
 
 INSERT INTO TransactionType (TransactionName)
 VALUES 
-    ('buy'),
-    ('sell');
+    ('Buy'),
+    ('Sell');
 GO
 
--- Generate 30 transactions with consistent data
 INSERT INTO Transactions (CustomerID, TransactionTypeID, TransactionDate)
 VALUES 
-    (1, 1, '2024-02-01'),
-    (2, 1, '2024-02-02'),
-    (3, 1, '2024-02-03'),
-    (4, 1, '2024-02-04'),
-    (5, 1, '2024-02-05'),
-    (6, 1, '2024-02-06'),
-    (7, 1, '2024-02-07'),
-    (8, 1, '2024-02-08'),
-    (9, 1, '2024-02-09'),
-    (10, 1, '2024-01-10'),
-    (11, 1, '2024-01-11'),
-    (12, 1, '2024-01-12'),
-    (13, 1, '2024-01-13'),
-    (14, 1, '2024-01-14'),
-    (1, 2, '2024-01-15'),
-    (2, 2, '2024-01-16'),
-    (3, 2, '2024-01-17'),
-    (4, 2, '2024-01-18'),
-    (5, 2, '2024-01-19'),
-    (6, 2, '2024-01-20'),
-    (7, 2, '2024-01-21'),
-    (8, 2, '2024-01-22'),
-    (9, 2, '2024-01-23'),
-    (10, 2, '2024-01-24'),
-    (11, 2, '2024-01-25'),
-    (12, 2, '2024-01-26'),
-    (13, 2, '2024-01-27'),
-    (14, 2, '2024-01-28');
-GO
+    (1, 1, '2024-02-01 08:00:00'),
+    (1, 2, '2024-01-15 13:45:00'),
+    (1, 2, '2024-01-12 12:37:00'),
+    (2, 1, '2024-02-02 09:30:00'),
+    (3, 1, '2024-02-03 10:15:00'),
+    (4, 1, '2024-02-04 11:45:00'),
+    (5, 1, '2024-02-05 12:30:00'),
+    (6, 1, '2024-02-06 13:20:00'),
+    (2, 2, '2024-01-16 14:30:00'),
+    (7, 1, '2024-02-07 14:00:00'),
+    (8, 1, '2024-02-08 15:00:00'),
+    (9, 1, '2024-02-09 16:00:00'),
+    (10, 1, '2024-01-10 08:30:00'),
+    (11, 1, '2024-01-11 09:00:00'),
+    (12, 1, '2024-01-12 09:45:00'),
+    (13, 1, '2024-01-13 10:30:00'),
+    (14, 1, '2024-01-14 11:15:00'),
+    (3, 2, '2024-01-17 15:00:00'),
+    (4, 2, '2024-01-18 15:45:00'),
+    (5, 2, '2024-01-19 08:00:00'),
+    (6, 2, '2024-01-20 08:45:00'),
+    (7, 2, '2024-01-21 09:30:00'),
+    (8, 2, '2024-01-22 10:15:00'),
+    (9, 2, '2024-01-23 11:00:00'),
+    (10, 2, '2024-01-24 11:45:00'),
+    (11, 2, '2024-01-25 12:30:00'),
+    (12, 2, '2024-01-26 13:00:00'),
+    (13, 2, '2024-01-27 13:45:00');
 
 
 -- Inserting transaction line data into the TransactionLine table
@@ -242,7 +240,45 @@ VALUES
 
     -- Transaction 14 with multiple lines
     (20, 14, 1),  -- StockID 20, TransactionID 14, Quantity 1
-    (21, 14, 1);
+    (21, 14, 1),
+
+    (22, 15, 1),  -- StockID 22, TransactionID 15, Quantity 1
+
+    -- Transaction 16 with single line
+    (23, 16, 1),  -- StockID 23, TransactionID 16, Quantity 1
+
+    -- Transaction 17 with single line
+    (24, 17, 1),  -- StockID 24, TransactionID 17, Quantity 1
+
+    -- Transaction 18 with single line
+    (25, 18, 1),  -- StockID 25, TransactionID 18, Quantity 1
+
+    -- Transaction 19 with single line
+    (26, 19, 1),  -- StockID 26, TransactionID 19, Quantity 1
+
+    -- Transaction 20 with single line
+    (27, 20, 1),  -- StockID 27, TransactionID 20, Quantity 1
+
+    -- Transaction 21 with single line
+    (28, 21, 1),  -- StockID 28, TransactionID 21, Quantity 1
+
+    -- Transaction 22 with single line
+    (29, 22, 1),  -- StockID 29, TransactionID 22, Quantity 1
+
+    -- Transaction 23 with single line
+    (30, 23, 1),  -- StockID 30, TransactionID 23, Quantity 1
+
+    -- Transaction 24 with single line
+    (31, 24, 1),  -- StockID 31, TransactionID 24, Quantity 1
+
+    -- Transaction 25 with single line
+    (32, 25, 1),  -- StockID 32, TransactionID 25, Quantity 1
+
+    -- Transaction 26 with single line
+    (33, 26, 1),  -- StockID 33, TransactionID 26, Quantity 1
+
+    -- Transaction 27 with single line
+    (34, 27, 1);  -- StockID 34, TransactionID 27, Quantity 1
 
 
 
