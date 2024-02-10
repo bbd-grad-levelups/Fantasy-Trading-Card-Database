@@ -1,4 +1,4 @@
-name: 'PostgreSQL GitHub DevOps Pipeline'
+name: 'SQL Server GitHub DevOps Pipeline'
  
 on:
   push:
