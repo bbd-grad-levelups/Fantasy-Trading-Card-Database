@@ -33,3 +33,9 @@ ALTER TABLE Stock
 ADD CONSTRAINT CHK_QuantityInStock 
 CHECK (QuantityInStock >= 0);
 GO
+
+-- Adding constraint to ensure Quantity is greater than or equal to 0 for TransactionLine
+ALTER TABLE TransactionLine
+ADD CONSTRAINT CHK_Quantity 
+CHECK (Quantity > 0);
+GO
