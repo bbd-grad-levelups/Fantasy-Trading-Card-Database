@@ -3,7 +3,7 @@ name: 'PostgreSQL GitHub DevOps Pipeline'
 on:
   push:
     branches:
-      - main
+      - Flyway
       
 env:
     SQLFLUFF_DIALECT: postgres
