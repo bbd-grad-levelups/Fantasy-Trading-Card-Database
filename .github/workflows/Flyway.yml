@@ -6,7 +6,7 @@ on:
       - Flyway
       
 env:
-    SQLFLUFF_DIALECT: postgres
+    SQLFLUFF_DIALECT: sqlserver
     DOCKER_IMAGE: redgate/flyway
     SCHEMAS: public
  
