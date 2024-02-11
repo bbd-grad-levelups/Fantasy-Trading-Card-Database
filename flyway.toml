@@ -1,0 +1,27 @@
+databaseType = "PostgreSql"
+id = "a39fa8ec-3854-4386-bd21-91f2ac0a2987"
+name = "TestingPostgres"
+
+[flyway]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+validateMigrationNaming = true
+
+  [flyway.check]
+  majorTolerance = 0
+
+[flywayDesktop]
+developmentEnvironment = "development"
+schemaModel = "schema-model"
+shadowEnvironment = "shadow"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgresql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.target1]
+url = "jdbc:postgresql://fantasyconnectiondb.cltqgxhlp0db.eu-west-1.rds.amazonaws.com:5432/"
+schemas = [ "public" ]
