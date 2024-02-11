@@ -1,4 +1,4 @@
-name: 'SQL Server GitHub DevOps Pipeline'
+name: 'Postgres GitHub DevOps Pipeline'
  
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - Flyway
       
 env:
-    SQLFLUFF_DIALECT: sqlserver
+    SQLFLUFF_DIALECT: postgres
     DOCKER_IMAGE: redgate/flyway
     SCHEMAS: public
  
