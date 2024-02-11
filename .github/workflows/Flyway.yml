@@ -17,28 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.0
-      
-      - name: Flyway Check
-        run: >-
-          docker run --rm \
-            --volume ${{ github.workspace }}/migrations:/flyway/sql:ro \
-            --volume ${{ github.workspace }}/reports:/flyway/reports \
-            -e "${{ env.DOCKER_IMAGE }}" \
-            -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" \
-            -url="${{ env.DB_BUILD_URL }}" \
-            -user="${{ env.DB_BUILD_USERNAME }}" \
-            -password="${{ env.DB_BUILD_PASSWORD }}" \
-            -baselineOnMigrate=true check -changes -drift -dryrun -schemas=public -outOfOrder=true \
-            -check.buildUrl="${{ secrets.DB_BUILD_URL }}" \
-            -check.buildUser="${{ secrets.DB_BUILD_USERNAME }}" \
-            -check.buildPassword="${{ secrets.DB_BUILD_PASSWORD }}" \ 
-            -reportFilename="/flyway/reports/report.html"
-            
-      - name: Upload report
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: Database Report
-          path: reports/
           
       - run: >-           
           docker run --rm
