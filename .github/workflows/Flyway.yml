@@ -26,9 +26,9 @@ jobs:
             -e ${{ secrets.FLYWAY_LICENSE_KEY }} \
             "${{ env.DOCKER_IMAGE }}" \
             -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" \
-            -url="${{ env.DB_PROD_URL }}" \
-            -user="${{ env.DB_PROD_USERNAME }}" \
-            -password="${{ env.DB_PROD_PASSWORD }}" \
+            -url="${{ env.DB_BUILD_URL }}" \
+            -user="${{ env.DB_BUILD_USERNAME }}" \
+            -password="${{ env.DB_BUILD_PASSWORD }}" \
             -baselineOnMigrate=true check -changes -drift -dryrun -schemas=public -outOfOrder=true \
             -check.buildUrl="${{ secrets.DB_BUILD_URL }}" \
             -check.buildUser="${{ secrets.DB_BUILD_USERNAME }}" \
@@ -46,25 +46,25 @@ jobs:
           --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
-          -url="${{ secrets.DB_PROD_URL }}"
-          -user="${{ secrets.DB_PROD_USERNAME }}"
-          -password="${{ secrets.DB_PROD_PASSWORD }}" 
+          -url="${{ secrets.DB_BUILD_URL }}"
+          -user="${{ secrets.DB_BUILD_USERNAME }}"
+          -password="${{ secrets.DB_BUILD_PASSWORD }}" 
           info -schemas="${{ env.SCHEMAS }}"
       - run: >-
           docker run --rm
           --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
-          -url="${{ secrets.DB_PROD_URL }}"
-          -user="${{ secrets.DB_PROD_USERNAME }}"
-          -password="${{ secrets.DB_PROD_PASSWORD }}" 
+          -url="${{ secrets.DB_BUILD_URL }}"
+          -user="${{ secrets.DB_BUILD_USERNAME }}"
+          -password="${{ secrets.DB_BUILD_PASSWORD }}" 
           migrate -schemas="${{ env.SCHEMAS }}" -outOfOrder=true
       - run: >-
           docker run --rm
           --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
-          -url="${{ secrets.DB_PROD_URL }}"
-          -user="${{ secrets.DB_PROD_USERNAME }}"
-          -password="${{ secrets.DB_PROD_PASSWORD }}"
+          -url="${{ secrets.DB_BUILD_URL }}"
+          -user="${{ secrets.DB_BUILD_USERNAME }}"
+          -password="${{ secrets.DB_BUILD_PASSWORD }}"
           info -schemas="${{ env.SCHEMAS }}"
