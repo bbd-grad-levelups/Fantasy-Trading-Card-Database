@@ -8,7 +8,7 @@ on:
 env:
     SQLFLUFF_DIALECT: postgres
     DOCKER_IMAGE: redgate/flyway
-    SCHEMAS: FantasyTCStore
+    SCHEMAS: dbo
  
 jobs:
   Deploy-Prod:
