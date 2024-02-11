@@ -44,9 +44,9 @@ jobs:
           --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}"
-          -url="${{ secrets.DB_PROD_URL }}"
-          -user="${{ secrets.DB_PROD_USERNAME }}" 
-          -password="${{ secrets.DB_PROD_PASSWORD }}"
+          -url="${{ secrets.DB_BUILD_URL }}"
+          -user="${{ secrets.DB_BUILD_USERNAME }}"
+          -password="${{ secrets.DB_BUILD_PASSWORD }}" 
           info -schemas="${{ env.SCHEMAS }}"
  
       - name: Flyway Check
