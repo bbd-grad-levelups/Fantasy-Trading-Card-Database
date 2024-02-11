@@ -1,15 +1,15 @@
-USE master;
-GO
+-- USE master;
+-- GO
 
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'FantasyTCStore')
-BEGIN
-    ALTER DATABASE FantasyTCStore SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE FantasyTCStore;
-END
-GO
+-- IF EXISTS (SELECT * FROM sys.databases WHERE name = 'FantasyTCStore')
+-- BEGIN
+--     ALTER DATABASE FantasyTCStore SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+--     DROP DATABASE FantasyTCStore;
+-- END
+-- GO
 
-CREATE DATABASE FantasyTCStore
-GO
+-- CREATE DATABASE FantasyTCStore
+-- GO
 
 
 USE FantasyTCStore
