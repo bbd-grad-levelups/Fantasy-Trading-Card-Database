@@ -116,5 +116,5 @@ ignoreWithElementOrder = true
 ignoreWithEncryption = false
 ignoreWithNoCheck = true
 
-[environments.fantasytradingcard]
-url = "jdbc:sqlserver://fantasycarddb.cltqgxhlp0db.eu-west-1.rds.amazonaws.com:1433;authentication=sqlPassword;databaseName=master;encrypt=true;trustServerCertificate=true"
+[environments.FantasyTCStore]
+url = "jdbc:sqlserver://fantasycarddb.cltqgxhlp0db.eu-west-1.rds.amazonaws.com:1433;authentication=sqlPassword;databaseName=FantasyTCStore;encrypt=true;trustServerCertificate=true"
