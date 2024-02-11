@@ -23,8 +23,7 @@ jobs:
           docker run --rm \
             --volume ${{ github.workspace }}/migrations:/flyway/sql:ro \
             --volume ${{ github.workspace }}/reports:/flyway/reports \
-            -e ${{ secrets.FLYWAY_LICENSE_KEY }} \
-            "${{ env.DOCKER_IMAGE }}" \
+            -e "${{ env.DOCKER_IMAGE }}" \
             -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" \
             -url="${{ env.DB_BUILD_URL }}" \
             -user="${{ env.DB_BUILD_USERNAME }}" \
