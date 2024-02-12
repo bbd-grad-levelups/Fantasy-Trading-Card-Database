@@ -1,0 +1,108 @@
+
+
+Table "CardRarity" {
+  "CardRarityID" INT [not null, increment]
+  "CardRarityName" VARCHAR(20)
+
+Indexes {
+  CardRarityID [pk]
+}
+}
+
+Table "CardCategory" {
+  "CardCategoryID" INT [not null, increment]
+  "CardCategoryName" VARCHAR(50)
+
+Indexes {
+  CardCategoryID [pk]
+}
+}
+
+Table "CardGrading" {
+  "CardGradingID" INT [not null, increment]
+  "CardGradingName" VARCHAR(20)
+
+Indexes {
+  CardGradingID [pk]
+}
+}
+
+Table "Cards" {
+  "CardID" INT [not null, increment]
+  "CardName" VARCHAR(100)
+  "CardCategoryID" INT [not null]
+  "CardRarityID" INT [not null]
+
+Indexes {
+  CardID [pk]
+}
+}
+
+Table "Stock" {
+  "StockID" INT [not null, increment]
+  "CardID" INT [not null]
+  "CardGradingID" INT [not null]
+  "QuantityInStock" INT [not null]
+
+Indexes {
+  StockID [pk]
+}
+}
+
+Table "Customers" {
+  "CustomerID" INT [increment]
+  "CustomerName" VARCHAR(200)
+  "Surname" VARCHAR(200)
+  "Email" VARCHAR(500)
+
+Indexes {
+  CustomerID [pk]
+}
+}
+
+Table "TransactionType" {
+  "TransactionTypeID" INT [increment]
+  "TransactionName" VARCHAR(4)
+
+Indexes {
+  TransactionTypeID [pk]
+}
+}
+
+Table "Transactions" {
+  "TransactionID" INT [increment]
+  "CustomerID" INT
+  "TransactionTypeID" INT
+  "TransactionDate" DATETIME
+
+Indexes {
+  TransactionID [pk]
+}
+}
+
+Table "TransactionLine" {
+  "TransactionLineID" INT [increment]
+  "StockID" INT [not null]
+  "TransactionID" INT [not null]
+  "Quantity" INT
+
+Indexes {
+  TransactionLineID [pk]
+}
+}
+
+Ref "FK_Cards_Rarity":"CardRarity"."CardRarityID" < "Cards"."CardRarityID"
+
+Ref "FK_Cards_Category":"CardCategory"."CardCategoryID" < "Cards"."CardCategoryID"
+
+Ref "FK_Stock_Cards":"Cards"."CardID" < "Stock"."CardID"
+
+Ref "FK_Stock_Grading":"CardGrading"."CardGradingID" < "Stock"."CardGradingID"
+
+Ref "FK_Transactions_Type":"TransactionType"."TransactionTypeID" < "Transactions"."TransactionTypeID"
+
+Ref "FK_Transactions_Customer":"Customers"."CustomerID" < "Transactions"."CustomerID"
+
+Ref "FK_TransactionLine_Stock":"Stock"."StockID" < "TransactionLine"."StockID"
+
+Ref "FK_TransactionLine_Transaction":"Transactions"."TransactionID" < "TransactionLine"."TransactionID"
