@@ -9,6 +9,7 @@ env:
     SQLFLUFF_DIALECT: postgres
     DOCKER_IMAGE: redgate/flyway
     SCHEMAS: dbo
+    MIGRATION_LOCATION: Flyway/migrations
  
 jobs:
   Deploy-Prod:
@@ -20,7 +21,7 @@ jobs:
           
       - run: >-           
           docker run --rm
-          --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
+          --volume ${{ github.workspace }} / ${{ env.MIGRATION_LOCATION }}:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
           -url="${{ secrets.DB_BUILD_URL }}"
@@ -29,7 +30,7 @@ jobs:
           info -schemas="${{ env.SCHEMAS }}"
       - run: >-
           docker run --rm
-          --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
+          --volume ${{ github.workspace }} / ${{ env.MIGRATION_LOCATION }}:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
           -url="${{ secrets.DB_BUILD_URL }}"
@@ -38,7 +39,7 @@ jobs:
           migrate -schemas="${{ env.SCHEMAS }}" -outOfOrder=true
       - run: >-
           docker run --rm
-          --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
+          --volume ${{ github.workspace }} / ${{ env.MIGRATION_LOCATION }}:/flyway/sql:ro
           "${{ env.DOCKER_IMAGE }}"
           -licenseKey="${{ secrets.FLYWAY_LICENSE_KEY }}" 
           -url="${{ secrets.DB_BUILD_URL }}"
