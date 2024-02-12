@@ -34,12 +34,6 @@ CREATE TABLE Customer (
 );
 GO
 
--- Creating TransactionType table
-CREATE TABLE TransactionType (
-    TypeID INT PRIMARY KEY IDENTITY(1, 1),
-	Name VARCHAR (45)
-);
-GO
 
 -- Creating CardName table 
 CREATE TABLE CardName (
