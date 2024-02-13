@@ -1,0 +1,5 @@
+USE FantasyTCStore
+GO
+
+DROP TABLE PERSON;
+GO
