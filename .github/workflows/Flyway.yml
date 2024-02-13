@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - Flyway/migrations
       
 env:
     DOCKER_IMAGE: redgate/flyway
