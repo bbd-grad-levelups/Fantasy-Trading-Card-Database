@@ -14,6 +14,17 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE UpdateStockCount
+    @StockId INT,
+    @NewQty INT
+AS
+BEGIN
+    UPDATE Stock
+    SET QtyInStock = @NewQty
+    WHERE StockId = @StockId
+END;
+GO
+
 
 CREATE PROCEDURE AddTransaction
     @CustomerID INT,
@@ -55,17 +66,5 @@ BEGIN
     BEGIN
         RAISERROR ('Invalid transaction. Please check the quantity and availability of the card.', 16, 1);
     END
-END;
-GO
-
-
-CREATE PROCEDURE UpdateStockCount
-    @StockId INT,
-    @NewQty INT
-AS
-BEGIN
-    UPDATE Stock
-    SET QtyInStock = @NewQty
-    WHERE StockId = @StockId
 END;
 GO
