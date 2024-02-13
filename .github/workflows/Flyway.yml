@@ -1,19 +1,18 @@
-name: 'Database migration pipeline'
+name: 'Database deployment CI/CD'
  
 on:
   push:
     branches:
-      - Flyway_ServerSQL
+      - main
       
 env:
-    SQLFLUFF_DIALECT: postgres
     DOCKER_IMAGE: redgate/flyway
     SCHEMAS: dbo
     MIGRATION_LOCATION: Flyway/migrations
  
 jobs:
-  Deploy-Prod:
-    name: Deploy Prod
+  Deploy:
+    name: Deploy
     runs-on: ubuntu-20.04         
     steps:
       - name: Checkout
