@@ -91,21 +91,29 @@ resource "aws_db_subnet_group" "database_subnet_group" {
     Name = "database-subnets-2"
   }
 }
+variable "password" {
+  description = "The password for the DB FantasyTCStore user"
+  type        = string
+}
+variable "username" {
+  description = "The username for the DB FantasyTCStore user"
+  type        = string
+}
 
 
 # create the rds instance
 resource "aws_db_instance" "default" {
-  engine                 = "sqlserver-ex"
-  engine_version         = "16.00.4095.4.v1"
-  multi_az               = false
-  identifier             = "fantasycarddb"
-  username               = "admin"
-  password               = "verysafepassword123"
+  engine         = "sqlserver-ex"
+  engine_version = "16.00.4095.4.v1"
+  multi_az       = false
+  identifier     = "fantasycarddb"
+  password       = var.password
+  username       = var.username
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [aws_security_group.database_security_group_2.id]
   availability_zone      = data.aws_availability_zones.available_zones.names[0]
   # db_name                = "fantasycarddb"
-  skip_final_snapshot    = true
+  skip_final_snapshot = true
 }

@@ -34,7 +34,7 @@ BEGIN
     WHERE s.StockID = @StockID;
 
     -- Calculate MonetaryValue using the formula 
-    SET @MonetaryValue = POWER(5, 1.5* @RarityID) /5* @GradingID;
+    SET @MonetaryValue = POWER(5, 1.5* @RarityID) /5* @GradingID+2;
 
     -- If TransactionTypeID is 2 (sell transaction), increase the value by 25%
     IF @TransactionTypeID = 2
