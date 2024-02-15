@@ -116,4 +116,5 @@ resource "aws_db_instance" "default" {
   availability_zone      = data.aws_availability_zones.available_zones.names[0]
   # db_name                = "fantasycarddb"
   skip_final_snapshot = true
+  publicly_accessible = true
 }
