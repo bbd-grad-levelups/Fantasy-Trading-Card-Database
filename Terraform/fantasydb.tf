@@ -8,6 +8,7 @@ provider "aws" {
 # create default vpc if one does not exit
 resource "aws_default_vpc" "default_vpc" {
 
+
   tags = {
     Name = "default vpc"
   }
@@ -91,6 +92,7 @@ resource "aws_db_subnet_group" "database_subnet_group" {
     Name = "database-subnets-2"
   }
 }
+
 variable "password" {
   description = "The password for the DB FantasyTCStore user"
   type        = string
@@ -100,15 +102,14 @@ variable "username" {
   type        = string
 }
 
-
 # create the rds instance
 resource "aws_db_instance" "default" {
   engine         = "sqlserver-ex"
   engine_version = "16.00.4095.4.v1"
   multi_az       = false
   identifier     = "fantasycarddb"
-  password       = var.password
-  username       = var.username
+  username       = "dbuser"
+  manage_master_user_password = true
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name

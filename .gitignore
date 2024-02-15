@@ -1,6 +1,7 @@
 # Terraform ignores
 /.terraform
 Terraform/.terraform
+*.terraform.tfstate
 
 # Flyway ignores
 *.user.toml
