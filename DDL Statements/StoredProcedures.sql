@@ -37,12 +37,12 @@ BEGIN
     IF @ValidTransaction = 1
     BEGIN
         INSERT INTO TransactionLine (StockID, TransactionID, Quantity)
-        VALUES (@CardID, @TransactionID);
+        VALUES (@CardID, @TransactionID, @Quantity);
         
         IF @TransactionTypeID = 1 -- Buy transaction
-            SET @NewStockQty = (SELECT QuantityInStock + @Quantity FROM Stock WHERE StockID = @CardID);
+            SET @NewStockQty = (SELECT QuantityInStock + @Quantity FROM Stock WHERE StockID = @StockID);
         ELSE -- Sell transaction
-            SET @NewStockQty = (SELECT QuantityInStock - @Quantity FROM Stock WHERE StockID = @CardID);
+            SET @NewStockQty = (SELECT QuantityInStock - @Quantity FROM Stock WHERE StockID = @StockID);
 
         EXEC UpdateStockCount @StockId = @StockID, @NewQty = @NewStockQty;
     END
