@@ -35,9 +35,10 @@ BBD Graduate Program Database Level-up (2024)
 8. Open the cloned repo in VSCode
 9. Open the Terraform folder in your terminal
 10. Enter this command into your terminal
-        ```sh
+    
+    ```sh
         terraform apply
-       ```
+    ```
 11. Enter username and password when prompted
 12. View your created database on AWS cloud
 
