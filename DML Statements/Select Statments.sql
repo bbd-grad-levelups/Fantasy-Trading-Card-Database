@@ -33,3 +33,22 @@ GO
 SELECT *
 FROM dbo.GetCustomerTransactions(1)
 ORDER BY TransactionDate;
+GO
+
+EXEC AddTransactionLine @CardID = 1, @TransactionID = 1, @Quantity = 10;
+GO
+
+SELECT * FROM TransactionLine WHERE CardID = 1 AND Quantity = 10;
+GO
+
+EXEC AddTransaction @CustomerID = 1, @typeid = 2, @TransactionDate = '2024-02-12';
+GO
+
+SELECT * FROM Transactions WHERE CustomberID = 1 AND TransactionDate = '2024-02-12';
+GO
+
+EXEC UpdateStockCount @StockId = 1, @NewQty = 20;
+GO
+
+SELECT * FROM Stock WHERE StockID = 1;
+GO
