@@ -1,4 +1,3 @@
-
 USE FantasyTCStore
 GO
 
@@ -9,27 +8,23 @@ SELECT TOP 10
     s.CardGradingID,
     dbo.CalculateMonetaryValue(s.StockID, 1) AS PurchasePrice,
     dbo.CalculateMonetaryValue(s.StockID, 2) AS SellingPrice
-FROM
-    Stock s
-INNER JOIN
-    Cards c ON s.CardID = c.CardID
-WHERE
-    c.CardRarityID=1 OR c.CardRarityID=5
-
+FROM Stock s
+INNER JOIN Cards c 
+ON s.CardID = c.CardID
+WHERE c.CardRarityID=1 
+OR c.CardRarityID=5
 ORDER BY PurchasePrice;
 GO
 
-
-SELECT * FROM CurrentStockView
+SELECT * 
+FROM CurrentStockView
 ORDER BY
     Category,
     CardName,
     SellingPrice;
-
-
 GO
-
 
 SELECT *
 FROM dbo.GetCustomerTransactions(1)
 ORDER BY TransactionDate;
+GO
