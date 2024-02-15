@@ -29,7 +29,7 @@ FROM dbo.GetCustomerTransactions(1)
 ORDER BY TransactionDate;
 GO
 
-EXEC AddTransactionLine @CardID = 1, @TransactionID = 1, @Quantity = 10;
+EXEC AddTransactionLine @StockID = 1, @TransactionID = 1, @Quantity = 10;
 GO
 
 SELECT * FROM TransactionLine WHERE CardID = 1 AND Quantity = 10;

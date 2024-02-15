@@ -4,8 +4,8 @@ CREATE PROCEDURE UpdateStockCount
 AS
 BEGIN
     UPDATE Stock
-    SET QtyInStock = @NewQty
-    WHERE StockId = @StockId
+    SET QuantityInStock = @NewQty
+    WHERE StockID = @StockId
 END;
 GO
 
@@ -16,14 +16,14 @@ CREATE PROCEDURE AddTransaction
     @TransactionDate DATETIME
 AS
 BEGIN
-    INSERT INTO CardTransaction (CustomerID, typeid, TransactionDate)
+    INSERT INTO CardTransaction (CustomerID, TransactionTypeID, TransactionDate)
     VALUES (@CustomerID, @typeid, @TransactionDate)
 END;
 GO
 
 
 CREATE PROCEDURE AddTransactionLine
-    @CardID INT,
+    @StockID INT,
     @TransactionID INT,
     @Quantity INT,
     @TransactionTypeID INT
@@ -37,14 +37,14 @@ BEGIN
     IF @ValidTransaction = 1
     BEGIN
         INSERT INTO TransactionLine (StockID, TransactionID, Quantity)
-        VALUES (@CardID, @TransactionID, @Quantity);
+        VALUES (@CardID, @TransactionID);
         
         IF @TransactionTypeID = 1 -- Buy transaction
             SET @NewStockQty = (SELECT QuantityInStock + @Quantity FROM Stock WHERE StockID = @CardID);
         ELSE -- Sell transaction
             SET @NewStockQty = (SELECT QuantityInStock - @Quantity FROM Stock WHERE StockID = @CardID);
 
-        EXEC UpdateStockCount @StockId = @CardID, @NewQty = @NewStockQty;
+        EXEC UpdateStockCount @StockId = @StockID, @NewQty = @NewStockQty;
     END
     ELSE
     BEGIN
