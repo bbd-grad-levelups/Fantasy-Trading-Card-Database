@@ -88,3 +88,7 @@ versioning your database. It places changes to your database in version control 
 6. Add new migrations (as .sql scripts) to your folder and push them to the branch
 
 You can view the progress of the github action on your online repository (the "actions") tab to verify that it ran successfully.
+
+# Links
+[Confluence](https://tradingcards-bbdgrad.atlassian.net/wiki/x/AQAL)
+[Jira](https://tradingcards-bbdgrad.atlassian.net/jira/software/projects/TCD/boards/1)
