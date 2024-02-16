@@ -51,9 +51,9 @@ Indexes {
 
 Table "Customers" {
   "CustomerID" INT [increment]
-  "CustomerName" VARCHAR(200)
-  "CustomerSurname" VARCHAR(200)
-  "CustomerEmail" VARCHAR(500)
+  "CustomerName" VARCHAR(1000)
+  "CustomerSurname" VARCHAR(1000)
+  "CustomerEmail" VARCHAR(254)
 
 Indexes {
   CustomerID [pk]
