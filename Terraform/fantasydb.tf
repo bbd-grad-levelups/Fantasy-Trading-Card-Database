@@ -114,7 +114,6 @@ resource "aws_db_instance" "default" {
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [aws_security_group.database_security_group_2.id]
   availability_zone      = data.aws_availability_zones.available_zones.names[0]
-  # db_name                = "fantasycarddb"
   skip_final_snapshot = true
   publicly_accessible = true
 }
